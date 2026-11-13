@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOCNA SHOTBAR | Zamówienie przyjęte!</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bananaYellow: '#FFE31A',
+                    },
+                    fontFamily: {
+                        oswald: ['Oswald', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0c0c0c;
+            font-family: 'Poppins', sans-serif;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(255, 227, 26, 0.08) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E");
+        }
+        .text-glow-yellow {
+            text-shadow: 0 0 15px rgba(255, 227, 26, 0.7), 0 0 30px rgba(255, 227, 26, 0.4);
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen flex flex-col justify-center items-center selection:bg-bananaYellow selection:text-black px-4 relative overflow-hidden">
+
+    <!-- Dekoracyjne ikony w tle -->
+    <div class="absolute top-1/4 left-10 opacity-10 transform -rotate-12 select-none pointer-events-none">
+        <i class="fa-solid fa-martini-glass-citrus text-[100px] text-bananaYellow"></i>
+    </div>
+    <div class="absolute bottom-1/4 right-10 opacity-10 transform rotate-12 select-none pointer-events-none">
+        <i class="fa-solid fa-fire-flame-curved text-[120px] text-bananaYellow"></i>
+    </div>
+
+    <!-- Główny komunikat -->
+    <div class="text-center z-10 max-w-2xl mx-auto">
+        <i class="fa-solid fa-circle-check text-6xl md:text-8xl text-bananaYellow mb-8 text-glow-yellow"></i>
+        
+        <h1 class="font-oswald font-extrabold text-6xl md:text-8xl tracking-tight text-glow-yellow text-bananaYellow uppercase leading-none mb-6">
+            GOTOWE!
+        </h1>
+        
+        <p class="font-poppins font-light text-zinc-300 text-lg md:text-xl mb-12">
+            Podejdź do baru. Twoja <span class="font-bold text-bananaYellow">Małpka Bananowa</span> już płonie i czeka na odbiór.
+        </p>
+
+        <!-- Przycisk powrotu do menu -->
+        <a href="index.html" class="group relative inline-flex items-center justify-center font-oswald text-sm md:text-base font-bold uppercase text-black bg-bananaYellow px-8 py-4 transition-all duration-300 hover:bg-white tracking-widest active:scale-95">
+            <span class="relative flex items-center gap-3">
+                <i class="fa-solid fa-arrow-left-long transform group-hover:-translate-x-2 transition-transform duration-300"></i>
+                WRÓĆ DO MENU
+            </span>
+        </a>
+    </div>
+
+</body>
+</html>
