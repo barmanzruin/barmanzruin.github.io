@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOCNA SHOTBAR | Menu Online</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0e0e0e',
+                        bananaYellow: '#FFE31A',
+                        bananaDark: '#cca500',
+                        brandGray: '#1c1c1c',
+                    },
+                    fontFamily: {
+                        oswald: ['Oswald', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0c0c0c;
+            font-family: 'Poppins', sans-serif;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 227, 26, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 227, 26, 0.03) 0%, transparent 40%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E");
+        }
+        .text-glow-yellow {
+            text-shadow: 0 0 10px rgba(255, 227, 26, 0.6), 0 0 20px rgba(255, 227, 26, 0.3);
+        }
+        .border-glow {
+            box-shadow: 0 0 15px rgba(255, 227, 26, 0.2);
+        }
+        /* Mobile menu utility */
+        .mobile-menu-active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-bananaYellow selection:text-black">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="border-b border-zinc-900 bg-black/60 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo area -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-14 h-14 rounded-full border-2 border-bananaYellow flex items-center justify-center p-1 bg-zinc-950 transition-transform group-hover:scale-105 duration-300">
+                    <!-- SVG logo representing the monkey holding a banana bunch -->
+                    <svg viewBox="0 0 100 100" class="w-full h-full text-bananaYellow fill-current">
+                        <!-- Circle border inner -->
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" />
+                        <!-- Monkey Face & Features -->
+                        <path d="M50,22 C41,22 36,28 36,36 C36,44 41,47 41,52 C41,55 43,59 47,61 C45,63 43,65 42,67 C38,65 31,63 27,67 C25,69 25,72 27,74 C29,76 34,75 38,71 C41,75 45,78 50,78 C55,78 59,75 62,71 C66,75 71,76 73,74 C75,72 75,69 73,67 C69,63 62,65 58,67 C57,65 55,63 53,61 C57,59 59,55 59,52 C59,47 64,44 64,36 C64,28 59,22 50,22 Z" fill="#27272a"/>
+                        <!-- Ears -->
+                        <circle cx="33" cy="38" r="7" fill="#27272a" />
+                        <circle cx="33" cy="38" r="4" fill="#000" />
+                        <circle cx="67" cy="38" r="7" fill="#27272a" />
+                        <circle cx="67" cy="38" r="4" fill="#000" />
+                        <!-- Eyes & Smile -->
+                        <circle cx="45" cy="36" r="2.5" fill="currentColor"/>
+                        <circle cx="55" cy="36" r="2.5" fill="currentColor"/>
+                        <path d="M46,45 Q50,49 54,45" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M42,32 Q45,30 48,32" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M58,32 Q55,30 52,32" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <!-- Bananas in hand/base -->
+                        <path d="M35,52 Q26,50 20,56 Q24,63 35,58 Z" fill="currentColor"/>
+                        <path d="M37,55 Q29,56 25,63 Q31,67 37,60 Z" fill="currentColor"/>
+                        <path d="M65,52 Q74,50 80,56 Q76,63 65,58 Z" fill="currentColor"/>
+                        <path d="M63,55 Q71,56 75,63 Q69,67 63,60 Z" fill="currentColor"/>
+                        <!-- Text curves text path mock or stylized banner -->
+                        <path d="M30,85 Q50,90 70,85" fill="none" stroke="currentColor" stroke-width="1" />
+                    </svg>
+                </div>
+                <div class="flex flex-col leading-none">
+                    <span class="font-oswald text-2xl font-bold tracking-wider text-white">MOCNA</span>
+                    <span class="font-oswald text-[11px] font-semibold text-bananaYellow tracking-[0.25em]">SHOTBAR</span>
+                </div>
+            </a>
+
+            <!-- Desktop Links -->
+            <nav class="hidden md:flex items-center gap-8 font-oswald text-sm tracking-widest text-zinc-300 uppercase">
+                <a href="#" class="hover:text-bananaYellow transition-colors text-bananaYellow">Menu</a>
+                <a href="#onas" class="hover:text-bananaYellow transition-colors">O nas</a>
+                <a href="#zasady" class="hover:text-bananaYellow transition-colors">Zasady</a>
+                <a href="#kontakt" class="hover:text-bananaYellow transition-colors">Kontakt</a>
+            </nav>
+
+            <!-- Social & Reservation buttons -->
+            <div class="hidden lg:flex items-center gap-6">
+                <div class="flex items-center gap-4 text-zinc-400">
+                    <a href="#" class="hover:text-bananaYellow transition-colors text-lg"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-bananaYellow transition-colors text-lg"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+                <a href="#zarezerwuj" class="font-oswald text-xs uppercase font-bold border-2 border-bananaYellow text-black bg-bananaYellow px-5 py-2.5 hover:bg-transparent hover:text-bananaYellow transition-all duration-300 tracking-wider">
+                    ZAREZERWUJ STOLIK
+                </a>
+            </div>
+
+            <!-- Hamburger menu button -->
+            <button id="menu-btn" class="md:hidden text-zinc-100 hover:text-bananaYellow focus:outline-none transition-colors" aria-label="Menu">
+                <i class="fa-solid fa-bars-staggered text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-zinc-950 border-b border-zinc-900 px-6 py-8 flex flex-col gap-6 font-oswald tracking-widest text-lg uppercase transition-all duration-300 shadow-2xl">
+            <a href="#" class="text-bananaYellow border-l-2 border-bananaYellow pl-3">Menu</a>
+            <a href="#onas" class="text-zinc-400 hover:text-bananaYellow pl-3">O nas</a>
+            <a href="#zasady" class="text-zinc-400 hover:text-bananaYellow pl-3">Zasady</a>
+            <a href="#kontakt" class="text-zinc-400 hover:text-bananaYellow pl-3">Kontakt</a>
+            <hr class="border-zinc-900 my-2">
+            <div class="flex items-center gap-6 text-zinc-400 px-3">
+                <a href="#" class="hover:text-bananaYellow text-xl"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-bananaYellow text-xl"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+            <a href="#zarezerwuj" class="font-oswald text-sm text-center uppercase font-bold bg-bananaYellow text-black py-3 px-4 hover:bg-bananaDark transition-colors">
+                ZAREZERWUJ STOLIK
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO & MENU MAIN SECTION -->
+    <main class="flex-grow flex flex-col justify-center items-center px-4 py-12 md:py-20 relative max-w-7xl mx-auto w-full">
+        
+        <!-- Decorative subtle bananas/neon elements -->
+        <div class="absolute top-10 left-10 opacity-10 hidden lg:block transform -rotate-12 select-none pointer-events-none">
+            <i class="fa-solid fa-pepper-hot text-[150px] text-bananaYellow"></i>
+        </div>
+        <div class="absolute bottom-10 right-10 opacity-10 hidden lg:block transform rotate-45 select-none pointer-events-none">
+            <i class="fa-solid fa-flask-vial text-[180px] text-bananaYellow"></i>
+        </div>
+
+        <div class="text-center z-10 w-full max-w-4xl px-2">
+            <!-- Secondary header badge -->
+            <span class="font-oswald text-sm md:text-md text-zinc-400 uppercase tracking-[0.4em] block mb-4">
+                — Menu Online —
+            </span>
+            <span class="font-oswald text-xs text-bananaYellow font-semibold uppercase tracking-widest border border-bananaYellow/30 bg-bananaYellow/5 px-4 py-1.5 rounded-full inline-block mb-8">
+                Jedyny i Ostateczny Wybór
+            </span>
+
+            <!-- Product Title -->
+            <h1 class="font-oswald font-extrabold text-5xl sm:text-7xl md:text-8xl tracking-tight text-glow-yellow text-bananaYellow uppercase leading-none select-none">
+                MAŁPKA BANANOWA
+            </h1>
+
+            <!-- Price -->
+            <div class="mt-4 md:mt-6 mb-2">
+                <span class="font-oswald font-bold text-4xl sm:text-6xl md:text-7xl tracking-wide text-white">
+                    2 137 PLN
+                </span>
+            </div>
+            <p class="font-poppins text-xs text-zinc-500 uppercase tracking-widest mb-10 select-none">
+                *cena ostateczna, brak zwrotów
+            </p>
+
+            <!-- Description -->
+            <p class="font-poppins font-light text-zinc-300 max-w-xl mx-auto text-sm sm:text-base leading-relaxed md:leading-loose mb-12 px-4">
+                Legendarny, mityczny shot dla najodważniejszych graczy. Receptura tak tajna, że nawet nasza małpa jej nie pamięta. Serwowany w blasku chwały, ognia i bananowego szaleństwa. 
+                <span class="block mt-4 font-semibold text-bananaYellow tracking-wider">PIJESZ NA WŁASNĄ ODPOWIEDZIALNOŚĆ!</span>
+            </p>
+
+            <!-- Call to Action -->
+            <div class="flex justify-center mb-24">
+                <a href="#bar" class="group relative inline-flex items-center justify-center font-oswald text-lg font-bold uppercase text-black bg-bananaYellow px-10 py-5 overflow-hidden transition-all duration-300 hover:bg-white tracking-widest border-glow active:scale-95">
+                    <span class="relative flex items-center gap-3">
+                        ZAMÓW PRZY BARZE 
+                        <i class="fa-solid fa-arrow-right-long transform group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </span>
+                </a>
+            </div>
+
+            <!-- RULES / "ZASADY LOKALU" SECTION -->
+            <div id="zasady" class="pt-12 border-t border-zinc-900/80 w-full">
+                <h3 class="font-oswald text-xs text-zinc-500 tracking-[0.3em] uppercase mb-8">ZASADY LOKALU</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left max-w-5xl mx-auto">
+                    <!-- Rule 1 -->
+                    <div class="bg-zinc-950/60 border border-zinc-900 hover:border-bananaYellow/20 p-5 rounded-lg transition-all duration-300">
+                        <div class="flex items-start gap-4">
+                            <span class="font-oswald text-2xl font-bold text-bananaYellow">1.</span>
+                            <div>
+                                <h4 class="font-oswald text-sm font-semibold tracking-wider text-white uppercase mb-1">MAŁPA MA ZAWSZE RACJĘ</h4>
+                                <p class="text-xs text-zinc-500 font-light leading-relaxed">Nawet gdy twierdzi, że banany rosną pod ziemią. Dyskusje kończą się opuszczeniem lokalu.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rule 2 -->
+                    <div class="bg-zinc-950/60 border border-zinc-900 hover:border-bananaYellow/20 p-5 rounded-lg transition-all duration-300">
+                        <div class="flex items-start gap-4">
+                            <span class="font-oswald text-2xl font-bold text-bananaYellow">2.</span>
+                            <div>
+                                <h4 class="font-oswald text-sm font-semibold tracking-wider text-white uppercase mb-1">CHCESZ BANANA? KUP SHOTA</h4>
+                                <p class="text-xs text-zinc-500 font-light leading-relaxed">Menu jest świętością. Nie ma darmowych przekąsek, negocjacji ani zniżek. Płacisz i rządzisz.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rule 3 -->
+                    <div class="bg-zinc-950/60 border border-zinc-900 hover:border-bananaYellow/20 p-5 rounded-lg transition-all duration-300">
+                        <div class="flex items-start gap-4">
+                            <span class="font-oswald text-2xl font-bold text-bananaYellow">3.</span>
+                            <div>
+                                <h4 class="font-oswald text-sm font-semibold tracking-wider text-white uppercase mb-1">NIE PYTAJ O INNE POZYCJE</h4>
+                                <p class="text-xs text-zinc-500 font-light leading-relaxed">Ich po prostu nie ma. Zaufaj procesowi, skup się na najważniejszym i bierz co dają.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="kontakt" class="border-t border-zinc-950 bg-black py-12 px-4 sm:px-6 lg:px-8 text-center text-zinc-600 text-xs">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <span class="font-oswald text-sm tracking-wider text-zinc-400">MOCNA SHOTBAR</span>
+                <span class="text-zinc-800">|</span>
+                <span>ul. Bananowa 13, 00-001 Warszawa</span>
+            </div>
+            <div class="flex items-center gap-6 text-zinc-500">
+                <a href="#" class="hover:text-white transition-colors">Polityka prywatności</a>
+                <a href="#" class="hover:text-white transition-colors">Regulamin</a>
+                <a href="#" class="hover:text-white transition-colors">Kontakt</a>
+            </div>
+            <div>
+                <p>&copy; 2026 MOCNA SHOTBAR. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE MENU TOGGLE SCRIPT -->
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close menu on resize to prevent visual bugs
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                menu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
